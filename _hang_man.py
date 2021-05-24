@@ -23,7 +23,14 @@ while run_p == True:
     word = s_word
 
     def clear():
-        os.system("clear")
+        if sys.platform == 'linux':
+            os.system("clear")
+        elif sys.platform == 'win32':
+            os.system("cls")
+        elif sys.platform == 'darwin':
+            os.system("clear")
+        else:
+            print("Unable to detect os: cannot clear screen")
 
     def draw_body(in_put):
         clear()
